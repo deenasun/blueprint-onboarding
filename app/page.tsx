@@ -10,7 +10,11 @@ export default function Home() {
     <main className={styles.main}>
       <div
         className={styles.container}
-        style={{ borderBottom: '1px solid #C4C4C4', paddingBottom: '15px' }}
+        style={{
+          borderBottom: '1px solid #C4C4C4',
+          paddingTop: '15px',
+          paddingBottom: '15px',
+        }}
       >
         <div className={styles.header}>
           <div className={styles.profile}>
