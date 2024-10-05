@@ -31,7 +31,9 @@ export default function Home() {
           key={posts.uuid}
           name={posts.username}
           date={posts.created_at}
+          content={posts.description}
           imageUrl={posts.image_url}
+          numLikes={posts.like_count}
         />
       ))}
       <div>

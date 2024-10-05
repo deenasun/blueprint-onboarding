@@ -3,11 +3,21 @@ import Image from 'next/image';
 import styles from '../app/styles.module.css';
 import InteractionBar from './InteractionBar';
 
-export default function Post({ name, date, imageUrl }: PostProps) {
+export default function Post({
+  name,
+  date,
+  content,
+  imageUrl,
+  numLikes,
+}: PostProps) {
   const postDate = new Date(date).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
   });
+
+  const urlIndex = content.indexOf('http');
+  const description = content.substring(0, urlIndex);
+  const link = content.substring(urlIndex, content.length);
 
   return (
     <div className={styles.post}>
@@ -20,15 +30,9 @@ export default function Post({ name, date, imageUrl }: PostProps) {
       </div>
       <div className={styles.content}>
         <p>
-          In response to the growing homelessness crisis in San Francisco, a
-          local nonprofit organization, Code Tenderloin, has launched a
-          comprehensive initiative aimed at providing long-term solutions for
-          individuals experiencing homelessness. The organization, founded in
-          2015, is dedicated to addressing both immediate needs and underlying
-          causes of homelessness through a combination of shelter services, job
-          training programs, and mental health support. Read more online:{' '}
-          <a href="https://www.codetenderloin.org" className={styles.link}>
-            https://www.codetenderloin.org/
+          {description}
+          <a href={link} className={styles.link}>
+            {link}
           </a>
         </p>
       </div>
@@ -40,7 +44,7 @@ export default function Post({ name, date, imageUrl }: PostProps) {
         height={300}
         src={imageUrl}
       />
-      <InteractionBar />
+      <InteractionBar numLikes={numLikes} />
     </div>
   );
 }

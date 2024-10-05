@@ -7,7 +7,9 @@ interface CommentProps {
 interface PostProps {
   name: string;
   date: string;
+  content: string;
   imageUrl: string;
+  numLikes?: number;
 }
 
 interface InteractionBarProps {
