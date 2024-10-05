@@ -1,25 +1,37 @@
+'use client';
+
 import Comment from '../components/Comment';
 import styles from './styles.module.css';
 import '../assets/global.css';
 import Post from '@/components/Post';
+import {queryPosts, queryComments} from '@/supabase/client'
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+
+  const [posts, setPosts] = useState<QueryPost[]>(null)
+  const [comments, setComments] = useState<any[]>(null)
+
+  useEffect(() => {
+    queryPosts().then((response) => {
+      setPosts(response.posts)
+    })
+    queryComments().then((response) => {
+      setComments(response.comments)
+    })
+  }, [])
+
+  if (!posts || !comments) {return}
+
   return (
     <main className={styles.main}>
-      <Post name='rbeggs' date='September 19' imageUrl='https://cdn.britannica.com/51/178051-050-3B786A55/San-Francisco.jpg'/>
+      {posts.map((posts) => (
+        <Post key={posts.uuid} name={posts.username} date={posts.created_at} imageUrl={posts.image_url} />
+      ))}
       <div>
-        <Comment
-          name={'daviddd'}
-          date={'September 20'}
-          comment={
-            'This organization is doing amazing work tackling the complex root causes of the issue.'
-          }
-        />
-        <Comment
-          name={'vppraggie'}
-          date={'September 21'}
-          comment={'Thanks for sharing!'}
-        />
+        {comments.map((comment) => (
+          <Comment key={comment.uuid}name={comment.username} date={comment.created_at} comment={comment.comment} />
+        ))}
       </div>
     </main>
   );

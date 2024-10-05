@@ -6,10 +6,19 @@ interface CommentProps {
 
 interface PostProps {
   name: string;
-  date:string;
+  date: string;
   imageUrl: string;
 }
 
 interface InteractionBarProps {
   numLikes: number;
+}
+
+interface QueryPost {
+  created_at: string;
+  description: string;
+  image_url: string;
+  like_count: number;
+  username: string;
+  uuid: string;
 }
