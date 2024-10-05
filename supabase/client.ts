@@ -1,20 +1,19 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function queryPosts() {
-  const { data: posts, error } = await supabase
-    .from('posts')
-    .select('*');
+  const { data: posts, error } = await supabase.from('posts').select('*');
 
   return { posts, error };
 }
 
 export async function queryComments() {
-  const { data: comments, error } = await supabase
-    .from('comments')
-    .select('*');
+  const { data: comments, error } = await supabase.from('comments').select('*');
+
+  console.log(comments);
 
   return { comments, error };
 }

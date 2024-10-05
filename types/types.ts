@@ -22,3 +22,11 @@ interface QueryPost {
   username: string;
   uuid: string;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface QueryComment {
+  created_at: string;
+  username: string;
+  comment: string;
+  uuid: string;
+}

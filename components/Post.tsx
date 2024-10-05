@@ -4,12 +4,11 @@ import styles from '../app/styles.module.css';
 import InteractionBar from './InteractionBar';
 
 export default function Post({ name, date, imageUrl }: PostProps) {
-
   const postDate = new Date(date).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
-  })
-  
+  });
+
   return (
     <div className={styles.post}>
       <div className={styles.container}>
