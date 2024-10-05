@@ -13,7 +13,5 @@ export async function queryPosts() {
 export async function queryComments() {
   const { data: comments, error } = await supabase.from('comments').select('*');
 
-  console.log(comments);
-
   return { comments, error };
 }

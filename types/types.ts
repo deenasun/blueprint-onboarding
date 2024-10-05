@@ -9,7 +9,7 @@ interface PostProps {
   date: string;
   content: string;
   imageUrl: string;
-  numLikes?: number;
+  numLikes: number;
 }
 
 interface InteractionBarProps {
