@@ -2,7 +2,7 @@ import { FiHeart as HeartIcon } from 'react-icons/fi';
 import { GoPaperAirplane as ShareIcon } from 'react-icons/go';
 import styles from '../app/styles.module.css';
 
-export default function InteractionBar({ numLikes }: { numLikes: number }) {
+export default function InteractionBar({ numLikes }: InteractionBarProps) {
   return (
     <div className={styles.container}>
       <HeartIcon size={24} className={styles.icon} />
