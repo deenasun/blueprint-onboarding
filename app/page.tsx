@@ -6,6 +6,7 @@ import '../assets/global.css';
 import { useEffect, useState } from 'react';
 import Post from '@/components/Post';
 import { queryComments, queryPosts } from '@/supabase/client';
+import { QueryComment, QueryPost } from '@/types/types';
 
 export default function Home() {
   const [posts, setPosts] = useState<QueryPost[] | null>(null);

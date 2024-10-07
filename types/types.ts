@@ -1,10 +1,10 @@
-interface CommentProps {
+export interface CommentProps {
   name: string;
   date: string;
   comment: string;
 }
 
-interface PostProps {
+export interface PostProps {
   name: string;
   date: string;
   content: string;
@@ -12,11 +12,11 @@ interface PostProps {
   numLikes: number;
 }
 
-interface InteractionBarProps {
+export interface InteractionBarProps {
   numLikes: number;
 }
 
-interface QueryPost {
+export interface QueryPost {
   created_at: string;
   description: string;
   image_url: string;
@@ -25,8 +25,7 @@ interface QueryPost {
   uuid: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface QueryComment {
+export interface QueryComment {
   created_at: string;
   username: string;
   comment: string;

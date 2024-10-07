@@ -1,5 +1,6 @@
 import { FiHeart as HeartIcon } from 'react-icons/fi';
 import { GoPaperAirplane as ShareIcon } from 'react-icons/go';
+import { InteractionBarProps } from '@/types/types';
 import styles from '../app/styles.module.css';
 
 export default function InteractionBar({ numLikes }: InteractionBarProps) {

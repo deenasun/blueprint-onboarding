@@ -1,5 +1,6 @@
 import { LuUserCircle as ProfileIcon } from 'react-icons/lu';
 import Image from 'next/image';
+import { PostProps } from '@/types/types';
 import styles from '../app/styles.module.css';
 import InteractionBar from './InteractionBar';
 
