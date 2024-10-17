@@ -28,6 +28,7 @@
   height: 100%;
   word-wrap: break-word;
   font-size: 13px;
+  margin-bottom: 0.5rem;
 }
 
 .icon {
@@ -79,6 +80,7 @@
 }
 
 .commentContainer {
+  width: 100%;
   max-width: 350px;
   display: flex;
   flex-direction: row;
@@ -108,4 +110,34 @@
   flex-grow: 1;
   justify-content: space-between;
   width: auto;
+}
+
+.navBar {
+  border-bottom: 1px solid #c4c4c4;
+  width: 350px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.backButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: auto;
+}
+
+.backButton:hover {
+  color: #107cf0;
+}
+
+.bpLogo {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }

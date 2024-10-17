@@ -15,3 +15,12 @@ export async function queryComments() {
 
   return { comments, error };
 }
+
+export async function queryCommentsByPostId(postId: string) {
+  const { data: comments, error } = await supabase
+    .from('comments')
+    .select('*')
+    .eq('post_uuid', postId);
+
+  return { comments, error };
+}

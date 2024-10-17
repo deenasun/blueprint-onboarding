@@ -8,7 +8,7 @@ export interface PostProps {
   name: string;
   date: string;
   content: string;
-  imageUrl: string;
+  imageUrl?: string;
   numLikes: number;
 }
 
@@ -30,4 +30,8 @@ export interface QueryComment {
   username: string;
   comment: string;
   uuid: string;
+}
+
+export interface PageParams {
+  params: Record<string, string>;
 }

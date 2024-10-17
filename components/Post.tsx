@@ -17,8 +17,12 @@ export default function Post({
   });
 
   const urlIndex = content.indexOf('http');
-  const description = content.substring(0, urlIndex);
-  const link = content.substring(urlIndex, content.length);
+  let description = content;
+  let link = null;
+  if (urlIndex !== -1) {
+    description = content.substring(0, urlIndex);
+    link = content.substring(urlIndex, content.length);
+  }
 
   return (
     <div className={styles.post}>
@@ -32,19 +36,23 @@ export default function Post({
       <div className={styles.content}>
         <p>
           {description}
-          <a href={link} className={styles.link}>
-            {link}
-          </a>
+          {link && (
+            <a href={link} className={styles.link}>
+              {link}
+            </a>
+          )}
         </p>
       </div>
 
-      <Image
-        alt="image of San Francisco"
-        className={styles.image}
-        width={300}
-        height={300}
-        src={imageUrl}
-      />
+      {imageUrl && (
+        <Image
+          alt="image of San Francisco"
+          className={styles.image}
+          width={300}
+          height={300}
+          src={imageUrl}
+        />
+      )}
       <InteractionBar numLikes={numLikes} />
     </div>
   );
