@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import { AppContextProvider } from '@/components/AppContext';
+import NavBar from '@/components/NavBar';
 
 // font definitions
 const poppins = Poppins({

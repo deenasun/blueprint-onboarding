@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Post from '@/components/Post';
 import { QueryPost } from '@/types/types';
 import { AppContext } from './AppContext';
+import NavBar from './NavBar';
 
 export default function Feed() {
   const [posts, setPosts] = useState<QueryPost[] | null>(null);
@@ -26,6 +27,7 @@ export default function Feed() {
 
   return (
     <main className={styles.main}>
+      <NavBar showBack={false} />
       {posts.map(posts => (
         <div
           key={posts.uuid}

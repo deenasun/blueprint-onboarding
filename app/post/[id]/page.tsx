@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '@/components/AppContext';
 import Comment from '@/components/Comment';
+import NavBar from '@/components/NavBar';
 import Post from '@/components/Post';
 import { queryCommentsByPostId } from '@/supabase/client';
 import { PageParams, QueryComment, QueryPost } from '@/types/types';
@@ -31,6 +32,7 @@ export default function Page(params: PageParams) {
 
   return (
     <main className={styles.main}>
+      <NavBar showBack={true} />
       <Post
         key={post?.uuid}
         name={post?.username}
