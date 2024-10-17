@@ -1,6 +1,12 @@
 'use client';
 
-import React, { createContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { queryPosts } from '@/supabase/client';
 import { QueryPost } from '@/types/types';
 
@@ -24,18 +30,21 @@ export function AppContextProvider({
     });
   }, []);
 
-  function getAllPosts() {
+  const getAllPosts = useCallback(() => {
     return posts;
-  }
+  }, [posts]);
 
-  function getPostById(id: string) {
-    const post = posts?.find(post => post.uuid === id);
-    return post ?? null;
-  }
+  const getPostById = useCallback(
+    (id: string): QueryPost | null => {
+      const post = posts?.find(post => post.uuid === id);
+      return post ?? null;
+    },
+    [posts],
+  );
 
   const AppContextValue = useMemo(
     () => ({ getAllPosts, getPostById }),
-    [posts],
+    [getAllPosts, getPostById],
   );
 
   return (
