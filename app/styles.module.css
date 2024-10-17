@@ -79,6 +79,7 @@
 }
 
 .commentContainer {
+  width: 100%;
   max-width: 350px;
   display: flex;
   flex-direction: row;
@@ -108,4 +109,9 @@
   flex-grow: 1;
   justify-content: space-between;
   width: auto;
+}
+
+.a {
+  color: black;
+  text-decoration: none;
 }
